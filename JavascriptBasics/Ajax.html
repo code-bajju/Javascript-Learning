@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <h1>Ajax</h1>
+    <p>AJAX stands for Asnychronous javascript and xml. It helps in fechting data Asnychronously without interfeting the existing page </p>
+    <button id="mybtn">fetch data</button>
+    <p>Your Data will displayed here</p>
+    <p id="demo"></p>
+</body>
+<script>
+   let fetchbtn = document.getElementById('mybtn');
+   fetchbtn.addEventListener('click',buttonClickHandler)
+
+   function buttonClickHandler(){
+    console.log("click detected");
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET','bajju.txt',true);
+
+    xhr.onprogress = function(){
+        console.log("on progress");
+
+    }
+
+    xhr.onload = function(){
+        document.getElementById("demo").innerHTML = this.responseText
+    }
+
+    xhr.send();
+   }
+  
+
+</script>
+</html>
