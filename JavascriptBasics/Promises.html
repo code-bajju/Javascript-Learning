@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+</body>
+<script>
+    function getcheese(){
+        setTimeout(function(){
+            console.log("hey there i am 3 second late")
+        },3000)
+    }
+    getcheese();
+
+    const ticket = new Promise(function(resolve,reject){
+        const isBoarded = false;
+        if(isBoarded){
+            resolve('your are on flight')
+        }
+        else{
+            reject('your are late')
+        }
+    });
+    ticket .then((data)=>{
+        console.log('wooho',data);
+    })
+    .catch((data)=>{
+        console.log('on no',data)
+    })
+</script>
+</html>
